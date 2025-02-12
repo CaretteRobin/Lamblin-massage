@@ -1,0 +1,406 @@
+/* Importation des polices */
+@import url('https://fonts.googleapis.com/css2?family=Lora:wght@400;600&display=swap');
+
+/*Styles généraux*/
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Lora', serif;
+    background-color: #F5F5DC;
+    color: #333;
+    line-height: 1.6;
+    transition: background-color 0.3s ease-in-out, color 0.3s ease-in-out;
+}
+
+/* Conteneur global */
+.container {
+    width: 90%;
+    max-width: 1200px;
+    margin: auto;
+}
+
+/* Titres */
+h1, h2, h3 {
+    font-weight: 600;
+    color: #8B7355;
+}
+
+h1 {
+    font-size: 2.5rem;
+    text-align: center;
+}
+
+h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    text-align: center;
+}
+
+/*Header & Navigation (menu sticky)*/
+.header-sticky {
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    background: rgba(255, 255, 255, 0.9);
+    padding: 15px 0;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+    z-index: 1000;
+    transition: background 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.navbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.navbar-brand {
+    font-size: 1.8rem;
+    font-weight: bold;
+    color: #8B7355;
+    text-decoration: none;
+}
+
+.navbar-menu {
+    list-style: none;
+    display: flex;
+    gap: 20px;
+}
+
+.navbar-menu li {
+    display: inline;
+}
+
+.navbar-menu a {
+    text-decoration: none;
+    color: #333;
+    font-weight: 600;
+    transition: color 0.3s ease-in-out;
+}
+
+.navbar-menu a:hover {
+    color: #A7C4A0;
+}
+
+/*Section Hero (bannière d’accueil)*/
+.hero {
+    position: relative;
+    width: 100%;
+    height: 100vh;
+    background-image: url('../images/cabinet4.jpeg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    color: white;
+    overflow: hidden;
+}
+
+/* Assombrissement du fond pour améliorer la lisibilité */
+.hero-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: linear-gradient(to bottom, rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.3));
+    z-index: 1;
+}
+
+/* Contenu Hero */
+.hero-content {
+    position: relative;
+    z-index: 2;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    width: 90%;
+    max-width: 1200px;
+}
+
+/* Amélioration de la lisibilité du texte */
+.hero-text {
+    flex: 0.5;
+    text-align: left;
+    animation: fadeIn 1s ease-out;
+}
+
+/* Ajout d’un fond semi-transparent derrière le texte */
+.text-background {
+    background: rgba(0, 0, 0, 0.5); /* Fond noir semi-transparent */
+    padding: 20px;
+    border-radius: 10px;
+    display: inline-block;
+}
+
+/* Amélioration du texte */
+.hero-text h1 {
+    font-size: 3.5rem;
+    font-weight: bold;
+    margin-bottom: 10px;
+    color: #FFF;
+    text-shadow: 2px 2px 5px rgba(0, 0, 0, 0.6);
+}
+
+.subtitle {
+    font-size: 1.4rem;
+    font-style: italic;
+    margin-bottom: 15px;
+    color: #A7C4A0;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+.hero-subtitle {
+    font-size: 1.2rem;
+    font-weight: normal;
+    color: #FFF;
+    max-width: 400px;
+    text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+}
+
+/* Image de la praticienne */
+.hero-image {
+    flex: 0.5;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.hero-image img {
+    width: 300px;
+    height: 350px;
+    border-radius: 50%;
+    border: 5px solid white;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+    object-fit: cover;
+    animation: fadeIn 1.5s ease-out;
+}
+
+/* Indicateur de scroll */
+.scroll-indicator {
+    position: absolute;
+    bottom: 20px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    opacity: 0.8;
+    animation: bounce 1.5s infinite;
+}
+
+/* Galerie du cabinet */
+.gallery .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 15px;
+    text-align: center;
+}
+
+.gallery img {
+    width: 100%;
+    border-radius: 10px;
+    transition: transform 0.3s ease-in-out, opacity 0.3s ease-in-out;
+    cursor: pointer;
+}
+
+.gallery a {
+    position: relative;
+    display: block;
+}
+
+.gallery a::before {
+    content: "🔍";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    opacity: 0;
+    font-size: 2rem;
+    color: white;
+    text-shadow: 0px 2px 10px rgba(0, 0, 0, 0.7);
+    transition: opacity 0.3s ease-in-out;
+}
+
+.gallery a:hover img {
+    transform: scale(1.05);
+    opacity: 0.8;
+}
+
+.gallery a:hover::before {
+    opacity: 1;
+}
+
+/* Mise en avant des prix */
+.price-box {
+    background: #A7C4A0;
+    color: white;
+    padding: 15px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.2rem;
+    margin-bottom: 30px;
+    font-weight: bold;
+}
+
+.price-box .gift {
+    font-size: 1rem;
+    margin-top: 10px;
+    font-style: italic;
+    color: #FFF9C4;
+}
+
+
+/* Mise en avant des prix */
+.price-box {
+    background: #A7C4A0;
+    color: white;
+    padding: 20px;
+    text-align: center;
+    border-radius: 10px;
+    font-size: 1.4rem;
+    margin-bottom: 40px;
+    font-weight: bold;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.price-box:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.price-box .gift {
+    font-size: 1.2rem;
+    margin-top: 10px;
+    font-style: italic;
+    color: #FFF9C4;
+}
+
+/*Section Prestations*/
+.prestations {
+    background: #FAF9F6;
+    padding: 80px 0;
+}
+
+.grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 20px;
+    text-align: center;
+}
+
+.service-card {
+    background: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+.service-card:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+.service-card img {
+    width: 100%;
+    border-radius: 10px;
+}
+
+.service-card h3 {
+    margin-top: 15px;
+    font-size: 1.5rem;
+    color: #8B7355;
+}
+
+/*Section Contact*/
+.contact {
+    background: #A7C4A0;
+    color: white;
+    text-align: center;
+    padding: 60px 20px;
+    border-radius: 10px;
+}
+
+.contact h2 {
+    margin-bottom: 20px;
+    font-size: 2rem;
+}
+
+/* Conteneur des cartes de contact */
+.contact-details {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 30px;
+    margin-top: 20px;
+}
+
+/* Style des cartes de contact */
+.contact-item {
+    background: rgba(255, 255, 255, 0.2);
+    padding: 20px;
+    border-radius: 10px;
+    width: 300px;
+    text-align: center;
+    border: 2px solid rgba(255, 255, 255, 0.3); /* Bordure subtile */
+    transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+}
+
+/* Effet hover (même que les prestations) */
+.contact-item:hover {
+    transform: scale(1.05);
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+}
+
+/* Icônes de contact */
+.contact-item img {
+    width: 40px;
+    height: 40px;
+    margin-bottom: 10px;
+}
+
+/* Texte de la carte */
+.contact-item p {
+    font-size: 1.2rem;
+    font-weight: bold;
+    color: white;
+}
+
+/* Lien interactif */
+.contact-item a {
+    color: #FFF9C4;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+.contact-item a:hover {
+    text-decoration: underline;
+}
+
+/*Google maps*/
+.localisation {
+    text-align: center;
+    padding: 40px 0;
+}
+
+.localisation iframe {
+    width: 90%;
+    border-radius: 10px;
+}
+
+/*footer*/
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 20px;
+    font-size: 0.9rem;
+}
