@@ -21,8 +21,7 @@ Il a été réalisé en **HTML, CSS et JavaScript Vanilla** afin d’offrir une 
 ---
 
 ## 📍 Déploiement
-💡 **Le site n'est pas encore déployé**.
-Une URL sera ajoutée dès qu’il sera disponible en ligne.
+https://www.audreylamblin.fr/
 
 ---
 
